@@ -25,5 +25,3 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
     libx11-dev libxcomposite-dev libxcursor-dev libxcursor-dev libxext-dev libxinerama-dev libxrandr-dev libxrender-dev \
     libwebkit2gtk-4.0-dev \
     libglu1-mesa-dev mesa-common-dev
-
-RUN mkdir /studioB
