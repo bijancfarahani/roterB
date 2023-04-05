@@ -18,6 +18,8 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
     wget \
     git \
     curl \
+    juce-tools \
+    juce-modules-source \
     libasound2-dev libjack-jackd2-dev \
     ladspa-sdk \
     libcurl4-openssl-dev  \
