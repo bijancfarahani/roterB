@@ -15,12 +15,12 @@ Docker needs to be installed on your dev machine.
 After cloning, go into the root of the repo and run:
 
 ```
-you@yourLocalDevMachine:/path/to/repo/$ ./build_docker_image.sh
+you@yourLocalDevMachine:/path/to/repo $ ./build_docker_image.sh
 ```
 to build the image with all the packages/libraries needed build and run JUCE plugins.
 #### Start a container
 After the image is build, run:
 ```
-you@yourLocalDevMachine:/path/to/repo/$ ./start_docker_container.sh
+you@yourLocalDevMachine:/path/to/repo $ ./start_docker_container.sh
 ```
 This will attach your shell to the container and set you in the same directory (the repo root).
