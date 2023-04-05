@@ -4,9 +4,10 @@ This is my stab at writing my own audio plugin.  We're going with a rotary effec
 
 
 # Setup
-This repo contains a Dockerfile for building on Linux.  But the windowing system can't (easily) run in a docker container. Right now, the app crashes with some windowing assertion error.  Until this is fixed, rely on Visual Studio for any actual development + testing.
+This repo contains a Dockerfile for building on Linux.  But the windowing system can't (easily) run in a docker container. Right now, the app crashes with some windowing assertion error.  
+Until this is fixed, rely on Visual Studio for any actual development + testing!!!!
 
-## Running in the container
+## Running in the container (Crashes right now)
 ### Prerequisites
 Docker needs to be installed on your dev machine.
 
