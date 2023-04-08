@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="uSvnb7" name="rotarB" projectType="audioplug" useAppConfig="0"
+<JUCERPROJECT id="OKTtv4" name="rotarB" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
-  <MAINGROUP id="xqlhYQ" name="rotarB">
-    <GROUP id="{ABDD9B9C-713E-0AED-012A-080BF48FEB4E}" name="Source">
-      <FILE id="QKjDkb" name="PluginProcessor.cpp" compile="1" resource="0"
+  <MAINGROUP id="ywKiCz" name="rotarB">
+    <GROUP id="{62F872EE-F1F5-05CE-5B72-22A3103DAF67}" name="Source">
+      <FILE id="uA9QS4" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
-      <FILE id="pD8JIz" name="PluginProcessor.h" compile="0" resource="0"
+      <FILE id="pyD2QT" name="PluginProcessor.h" compile="0" resource="0"
             file="Source/PluginProcessor.h"/>
-      <FILE id="WDW48q" name="PluginEditor.cpp" compile="1" resource="0"
+      <FILE id="uIILTJ" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
-      <FILE id="J4tew9" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="rYpJJI" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
