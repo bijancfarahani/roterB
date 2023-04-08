@@ -56,7 +56,13 @@ public:
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
+    juce::AudioVisualiserComponent& getWaveVisualizer() { return _waveVisualizer; }
+
 private:
+    juce::dsp::Gain<float> _gain;
+    juce::AudioVisualiserComponent _waveVisualizer;
+    juce::dsp::Oscillator<float> _oscillator{ [](float x) { return std::sin(x); } };
+    
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (RotarBAudioProcessor)
 };
