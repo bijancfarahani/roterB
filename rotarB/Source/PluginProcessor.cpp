@@ -19,9 +19,15 @@ RotarBAudioProcessor::RotarBAudioProcessor()
                       #endif
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
-                       )
+                       ),
+    _waveVisualizer(1)
 #endif
 {
+    _waveVisualizer.setRepaintRate(30);
+    // A larger buffer size is proportional to the length of time for
+    // the displayed wave.  Using a smaller buffer size tends to only draw
+    // a few transients per frame.
+    _waveVisualizer.setBufferSize(256);
 }
 
 RotarBAudioProcessor::~RotarBAudioProcessor()
@@ -95,6 +101,19 @@ void RotarBAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+
+
+    juce::dsp::ProcessSpec spec;
+    spec.maximumBlockSize = samplesPerBlock;
+    spec.sampleRate = sampleRate;
+    spec.numChannels = getTotalNumOutputChannels();
+    _gain.prepare(spec);
+    _oscillator.prepare(spec);
+
+    _gain.setGainLinear(0.06f);
+    _gain.setRampDurationSeconds(0.3f);
+
+    _oscillator.setFrequency(220.0f);
 }
 
 void RotarBAudioProcessor::releaseResources()
@@ -128,7 +147,6 @@ bool RotarBAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) c
   #endif
 }
 #endif
-
 void RotarBAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
     juce::ScopedNoDenormals noDenormals;
@@ -156,6 +174,15 @@ void RotarBAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce:
 
         // ..do something to the data...
     }
+
+    // Running these with ProcessContextReplacing means that the buffer
+    // is overwritten at the end of each process.  So we set the gain
+    // after the oscillator.
+    juce::dsp::AudioBlock<float> audioBlock(buffer);
+    _oscillator.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
+    _gain.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
+
+    _waveVisualizer.pushBuffer(buffer);
 }
 
 //==============================================================================
